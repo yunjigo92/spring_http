@@ -1,15 +1,33 @@
 package com.example.http.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.http.dto.User;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-@RestController // rest api 사용
-@RequestMapping("/api") // request mapping 설정
+
+//다양한 response 형태를 알아보자
+@RestController
+@RequestMapping("/api")
 public class ApiController {
 
-    @GetMapping("/hello")
-    public String hello(){
-        return "hello spring api ! ";
+    //단순 text 리턴
+    @GetMapping("/text")
+    public String text(@RequestParam String account){
+        return account;
     }
+
+    //Json 리턴
+    // req -> object mapper -> object -> method -> object -> object mapper -> json -> response
+    @PostMapping("/json")
+    public User json(@RequestBody User user){
+        return user;
+    }
+
+    //응답코드 및 응답 값을 설정해서 리턴해야 하는 경우
+    @PutMapping("/put/json")
+    public ResponseEntity put(@RequestBody User user){
+      return ResponseEntity.status(HttpStatus.CREATED).body(user);
+    }
+
 }

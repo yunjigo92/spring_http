@@ -9,7 +9,7 @@ public class PostRequestDto {
     private String address;
     private String password;
 
-    //이렇게 카멜케이스인 경우는 JsonProperty 어노테이션을 사용해서 가능하다.
+    //이렇게 Json 요청시 스네이크 케이스인 경우는 JsonProperty 어노테이션을 사용해서 설정 후 가능하다.
     @JsonProperty("phone_number")
     private String phoneNumber; //
 
