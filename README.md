@@ -1,6 +1,6 @@
 # spring_http
 
-###HTTP method 별 Spring boot 기본 사용 format 정리
+### HTTP method 별 Spring boot 기본 사용 format 정리
 
 - GET
 - POST
